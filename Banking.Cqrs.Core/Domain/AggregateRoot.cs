@@ -8,12 +8,12 @@ namespace Banking.Cqrs.Core.Domain
         private int version = -1;
         List<BaseEvent> changes = new List<BaseEvent>();
 
-        public int GetVersio()
+        public int GetVersion()
         {
             return version;
         }
 
-        public void SetVersion()
+        public void SetVersion(int version)
         {
             this.version = version;
         }
@@ -56,7 +56,7 @@ namespace Banking.Cqrs.Core.Domain
             ApplyChanges(@event, true);
         }
 
-        public void ReplayEvent(IEnumerable<BaseEvent> events)
+        public void ReplayEvents(IEnumerable<BaseEvent> events)
         {
             foreach (var evt in events)
             {
