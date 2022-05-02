@@ -2,7 +2,7 @@
 
 namespace Banking.Account.Query.Application.Contracts.Persistence
 {
-    public interface IAsyncReepository<T> where T : BaseDomainModel
+    public interface IAsyncRepository<T> where T : BaseDomainModel
     {
         Task<IReadOnlyList<T>> GetAllAsync();
         Task<T> GetByIdAsync(int id);

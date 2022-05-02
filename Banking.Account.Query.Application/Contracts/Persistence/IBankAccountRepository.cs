@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Banking.Account.Query.Application.Contracts.Persistence
 {
-    public interface IBankAccountRepository : IAsyncReepository<BankAccount>
+    public interface IBankAccountRepository : IAsyncRepository<BankAccount>
     {
         Task<BankAccount> FindByAccountIdentifier(string identifier);
         Task<IEnumerable<BankAccount>> FindByAccountHolder(string accountHolder);

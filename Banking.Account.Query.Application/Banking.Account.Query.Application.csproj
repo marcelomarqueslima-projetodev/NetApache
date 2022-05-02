@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Banking.Account.Query.Domain\Banking.Account.Query.Domain.csproj" />
   </ItemGroup>
 
