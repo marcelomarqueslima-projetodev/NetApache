@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace Banking.Account.Command.Domain
 {
-    [BsonCollecction("eventStoree")]
+    [BsonCollection("eventStore")]
     public class EventModel : Document
     {
         [BsonElement("timestamp")]

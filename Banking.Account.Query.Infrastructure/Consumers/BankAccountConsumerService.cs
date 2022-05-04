@@ -83,7 +83,7 @@ namespace Banking.Account.Query.Infrastructure.Consumers
                                     Identifier = accountWithdrawEvent!.Id,
                                     Balance = accountWithdrawEvent.Amount
                                 };
-                                _bankAccountRepository.WithdrawBankAccountByyIdentifier(bankAccount).Wait();
+                                _bankAccountRepository.WithdrawnBankAccountByIdentifier(bankAccount).Wait();
                             }
                         }
                     }

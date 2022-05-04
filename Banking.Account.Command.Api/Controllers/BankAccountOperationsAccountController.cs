@@ -28,6 +28,7 @@ namespace Banking.Account.Command.Api.Controllers
             return await _mediator.Send(command);
         }
 
+
         [HttpDelete("CloseAccount/{id}", Name = "CloseAccount")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesDefaultResponseType]
@@ -37,6 +38,7 @@ namespace Banking.Account.Command.Api.Controllers
             {
                 Id = id
             };
+
             return await _mediator.Send(command);
         }
 
@@ -52,7 +54,7 @@ namespace Banking.Account.Command.Api.Controllers
         [HttpPut("WithdrawnFund/{id}", Name = "WithdrawnFund")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesDefaultResponseType]
-        public async Task<ActionResult<bool>> WithdrawnFund(string id, [FromBody] WithdrawnFundCommand command)
+        public async Task<ActionResult<bool>> WithdrawnFund(string id, [FromBody] WithdrawFundsCommand command)
         {
             command.Id = id;
             return await _mediator.Send(command);

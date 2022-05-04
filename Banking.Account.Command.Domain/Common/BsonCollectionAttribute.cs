@@ -1,9 +1,9 @@
 ﻿namespace Banking.Account.Command.Domain.Common
 {
     [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public class BsonCollecctionAttribute : Attribute
+    public class BsonCollectionAttribute : Attribute
     {
-        public BsonCollecctionAttribute(string collectionName)
+        public BsonCollectionAttribute(string collectionName)
         {
             CollectionName = collectionName;
         }

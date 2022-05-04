@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Banking.Account.Query.Infrastructure\Banking.Account.Query.Infrastructure.csproj" />
   </ItemGroup>
 

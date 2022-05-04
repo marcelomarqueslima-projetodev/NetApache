@@ -4,11 +4,11 @@ using MediatR;
 
 namespace Banking.Account.Query.Application.Features.BankAccounts.Queries.FindAccountWithBalance
 {
-    public class FindAccountWithBalanceHandler : IRequestHandler<FindAccountWithBalanceQuery, IEnumerable<BankAccount>>
+    public class FindAccountWithBalanceQueryHandler : IRequestHandler<FindAccountWithBalanceQuery, IEnumerable<BankAccount>>
     {
         private readonly IBankAccountRepository _bankAccountRepository;
 
-        public FindAccountWithBalanceHandler(IBankAccountRepository bankAccountRepository)
+        public FindAccountWithBalanceQueryHandler(IBankAccountRepository bankAccountRepository)
         {
             _bankAccountRepository = bankAccountRepository;
         }
@@ -17,9 +17,9 @@ namespace Banking.Account.Query.Application.Features.BankAccounts.Queries.FindAc
         {
             if(request.EqualityType == "GREATER_THAN")
             {
-                return await _bankAccountRepository.FindBalanceGreaterThan(request.Balance);
+                return await _bankAccountRepository.FindByBalanceGreaterThan(request.Balance);
             }
-            return await _bankAccountRepository.FindBalanceLessThan(request.Balance);
+            return await _bankAccountRepository.FindByBalanceLessThan(request.Balance);
         }
     }
 }

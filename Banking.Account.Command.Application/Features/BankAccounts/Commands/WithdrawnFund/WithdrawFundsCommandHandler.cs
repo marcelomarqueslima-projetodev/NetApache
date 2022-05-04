@@ -4,16 +4,17 @@ using MediatR;
 
 namespace Banking.Account.Command.Application.Features.BankAccounts.Commands.WithdrawnFund
 {
-    public class WithdrawnFundCommandHandler : IRequestHandler<WithdrawnFundCommand, bool>
+    public class WithdrawFundsCommandHandler : IRequestHandler<WithdrawFundsCommand, bool>
     {
+
         private readonly EventSourcingHandler<AccountAggregate> _eventSourcingHandler;
 
-        public WithdrawnFundCommandHandler(EventSourcingHandler<AccountAggregate> eventSourcingHandler)
+        public WithdrawFundsCommandHandler(EventSourcingHandler<AccountAggregate> eventSourcingHandler)
         {
             _eventSourcingHandler = eventSourcingHandler;
         }
 
-        public async Task<bool> Handle(WithdrawnFundCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(WithdrawFundsCommand request, CancellationToken cancellationToken)
         {
             var aggregate = await _eventSourcingHandler.GetById(request.Id);
             aggregate.WithdrawFunds(request.Amount);

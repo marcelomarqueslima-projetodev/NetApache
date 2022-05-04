@@ -4,11 +4,11 @@ using MediatR;
 
 namespace Banking.Account.Query.Application.Features.BankAccounts.Queries.FindAccountByHolder
 {
-    public class FindAccountByHolderHandler : IRequestHandler<FindAccountByHolderQuery, IEnumerable<BankAccount>>
+    public class FindAccountByHolderQueryHandler : IRequestHandler<FindAccountByHolderQuery, IEnumerable<BankAccount>>
     {
         private readonly IBankAccountRepository _bankAccounntRepository;
 
-        public FindAccountByHolderHandler(IBankAccountRepository bankAccounntRepository)
+        public FindAccountByHolderQueryHandler(IBankAccountRepository bankAccounntRepository)
         {
             _bankAccounntRepository = bankAccounntRepository;
         }

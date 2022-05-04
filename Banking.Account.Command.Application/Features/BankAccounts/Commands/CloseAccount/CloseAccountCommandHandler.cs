@@ -17,7 +17,7 @@ namespace Banking.Account.Command.Application.Features.BankAccounts.Commands.Clo
         {
             var aggregate = await _eventSourcingHandler.GetById(request.Id);
             aggregate.CloseAccount();
-            _eventSourcingHandler.Save(aggregate);
+            await _eventSourcingHandler.Save(aggregate);
             return true;
         }
     }

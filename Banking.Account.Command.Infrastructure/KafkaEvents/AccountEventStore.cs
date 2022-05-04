@@ -23,7 +23,7 @@ namespace Banking.Account.Command.Infrastructure.KafkaEvents
             var eventStream = await _eventStoreRepository.FindByAggregateIdentifier(aggregateId);
             if(eventStream == null || !eventStream.Any())
             {
-                throw new ArgumentException("A conta bancária não existe");
+                throw new Exception("A conta bancária não existe");
             }
             return eventStream.Select(x => x.EventData).ToList();
         }

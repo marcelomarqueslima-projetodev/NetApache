@@ -23,12 +23,13 @@ namespace Banking.Account.Command.Infrastructure
             BsonClassMap.RegisterClassMap<FundsWithdrawnEvent>();
 
             services.AddScoped(typeof(IMongoRepository<>), typeof(MongoRepository<>));
-            services.AddScoped<EventProducer,AccountEventProducer>();
+            services.AddScoped<EventProducer, AccountEventProducer>();
             services.AddTransient<IEventStoreRepository, EventStoreRepository>();
             services.AddTransient<EventStore, AccountEventStore>();
             services.AddTransient<EventSourcingHandler<AccountAggregate>, AccountEventSourcingHandler>();
 
             return services;
+
         }
     }
 }

@@ -19,12 +19,12 @@ namespace Banking.Account.Query.Infrastructure.Repositories
             return await _context.BankAccounts!.Where(x => x.AccountHolder == accountHolder).ToListAsync();
         }
 
-        public async Task<IEnumerable<BankAccount>> FindBalanceGreaterThan(double balance)
+        public async Task<IEnumerable<BankAccount>> FindByBalanceGreaterThan(double balance)
         {
             return await _context.BankAccounts!.Where(x => x.Balance > balance).ToListAsync();
         }
 
-        public async Task<IEnumerable<BankAccount>> FindBalanceLessThan(double balance)
+        public async Task<IEnumerable<BankAccount>> FindByBalanceLessThan(double balance)
         {
             return await _context.BankAccounts!.Where(x => x.Balance < balance).ToListAsync();
         }
@@ -52,7 +52,7 @@ namespace Banking.Account.Query.Infrastructure.Repositories
             await UpdateAsync(account);
         }
 
-        public async Task WithdrawBankAccountByyIdentifier(BankAccount bankAccount)
+        public async Task WithdrawnBankAccountByIdentifier(BankAccount bankAccount)
         {
             var account = await _context.BankAccounts!.Where(x => x.Identifier == bankAccount.Identifier).FirstOrDefaultAsync();
             if (account == null)

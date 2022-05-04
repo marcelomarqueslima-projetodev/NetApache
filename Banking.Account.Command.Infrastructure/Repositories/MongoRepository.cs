@@ -12,15 +12,15 @@ namespace Banking.Account.Command.Infrastructure.Repositories
 
         public MongoRepository(IOptions<MongoSettings> options)
         {
-            var client = new MongoClient(options.Value.ConnectonString);
+            var client = new MongoClient(options.Value.ConnectionString);
             var db = client.GetDatabase(options.Value.Database);
             _collection = db.GetCollection<TDocument>(GetCollectionName(typeof(TDocument)));
         }
 
         private protected string GetCollectionName(Type documentType)
         {
-            return ((BsonCollecctionAttribute)documentType
-                .GetCustomAttributes(typeof(BsonCollecctionAttribute), true)
+            return ((BsonCollectionAttribute)documentType
+                .GetCustomAttributes(typeof(BsonCollectionAttribute), true)
                 .FirstOrDefault()).CollectionName;
         }
 

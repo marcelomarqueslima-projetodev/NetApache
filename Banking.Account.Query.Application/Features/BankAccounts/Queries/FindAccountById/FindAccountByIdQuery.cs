@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Banking.Account.Query.Application.Features.BankAccounts.Queries.FindAccountById
 {
-    public class FindAcccountByIdQuery : IRequest<BankAccount>
+    public class FindAccountByIdQuery : IRequest<BankAccount>
     {
         public string Identifier { get; set; } = string.Empty;
     }
